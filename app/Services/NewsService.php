@@ -18,4 +18,9 @@ class NewsService {
         return $this->repository->all();
     }
 
+    public function find(int $id)
+    {
+        return $this->repository->find($id);
+    }
+
 }

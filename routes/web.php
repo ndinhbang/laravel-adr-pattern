@@ -19,9 +19,5 @@ Route::get('/', function () {
 
 Route::prefix("news")->group(function(){
     Route::get('/',[\App\Http\Actions\News\NewsIndexAction::class,'__invoke'])->name("news.index");
-    Route::post('/store', [\App\Http\Controllers\Contract\MContractGroupController::class, 'store'])->name('news.store');
-    Route::get('/choices', [\App\Http\Controllers\Contract\MContractGroupController::class, 'choices'])->name('news.choices');
-    Route::get('/{id}', [\App\Http\Controllers\Contract\MContractGroupController::class, 'show'])->name('news.show');
-    Route::put('/{id}', [\App\Http\Controllers\Contract\MContractGroupController::class, 'update'])->name('news.update');
-    Route::get('/{id}/edit', [\App\Http\Controllers\Contract\MContractGroupController::class, 'edit'])->name('news.edit');
+    Route::get('/{id}', [\App\Http\Actions\News\NewsShowAction::class, '__invoke'])->name('news.show');
 });
